@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Vercel Deployment</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            font-family: 'Inter', system-ui, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+
+        /* Abstract Background blobs */
+        .blob {
+            position: absolute;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.6;
+            animation: float 10s ease-in-out infinite alternate;
+        }
+        .blob-1 { top: -10%; left: -10%; width: 400px; height: 400px; background: #c026d3; }
+        .blob-2 { bottom: -10%; right: -10%; width: 500px; height: 500px; background: #3b82f6; animation-delay: -5s; }
+
+        @keyframes float {
+            0% { transform: translateY(0px) scale(1); }
+            100% { transform: translateY(50px) scale(1.1); }
+        }
+
+        .glass-card {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 4rem;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%;
+            transition: transform 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 0 0 1rem 0;
+            background: linear-gradient(to right, #e879f9, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 2.5rem;
+        }
+
+        .success-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            color: #34d399;
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px -10px rgba(168, 85, 247, 0.5);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+            box-shadow: 0 15px 25px -10px rgba(168, 85, 247, 0.7);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    
+    <div class="glass-card">
+        <div class="success-badge">
+            ✨ Deployed Successfully
+        </div>
+        <h1>Deployment Complete!</h1>
+        <p>Your beautiful new project is now live on Vercel. This site was pushed automatically to GitHub and deployed instantly.</p>
+        <a href="https://vercel.com/dashboard" class="btn" target="_blank">Go to Vercel Dashboard</a>
+    </div>
+</body>
+</html>
